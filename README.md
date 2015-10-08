@@ -1,12 +1,36 @@
-ng-cchits : AngularJS port of CCHits.net, the site where you make the charts.
+ng-cchits
+=========
+
+AngularJS port of CCHits.net, the site where you make the charts.
 
 Tools
-=====
+-----
 
 You will need `bower` to manager javascript dependencies, and `composer` to manager PHP dependencies.
 
+Database
+--------
+
+There is no Flyway equivalent yet (I'll have a look at Phinx), so here's the basic schema to create.
+This will create one account with a username 'admin' and password 'Ch@ngEME'
+
+```mysql
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `email` varchar(128) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+```
+```mysql
+INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
+(1, 'admin', '$2a$12$0f24e2b8bf113c9f6d11eunaTstXTWqI9jb3m9HZc/1J6Jc04OdbC', 'info@euterpia-radio.fr');
+```
+
 Server
-======
+------
 
 Here's an Apache 2 example configuration:
 
@@ -30,12 +54,12 @@ Listen 9090
 ```
 
 Contribute
-==========
+--------
 
 Clone this repository, then install javascript and PHP dependencies :
  
 ```bash
-$ git clone https://github.com/ymauray/ng-cchits
+$ git clone https://github.com/ymauray/ng-cchits.git
 $ cd ng-cchits
 $ composer install
 $ bower install

@@ -1,6 +1,8 @@
 <?php
 require 'vendor/autoload.php';
 
+require 'config.php';
+
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Lcobucci\JWT\Builder;
@@ -16,14 +18,7 @@ $c['foundHandler'] = function() {
 $principal = null;
 $signer = new Sha256();
 
-$database = new medoo([
-    'database_type' => 'mysql',
-    'database_name' => 'cchits',
-    'server' => 'localhost',
-    'username' => 'cchits',
-    'password' => 'cchits',
-    'charset' => 'utf8'
-]);
+$database = new medoo($db_config);
 
 $app = new \Slim\App($c);
 
@@ -130,5 +125,3 @@ $app->post('/admin/rest/principal/authenticate', function(ServerRequestInterface
 });
 
 $app->run();
-
-?>
