@@ -1,0 +1,28 @@
+{
+  "name": "ng-cchits",
+  "version": "0.0.0",
+  "authors": [
+    "Yannick Mauray <yannick.mauray@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-jwt": "~0.0.9",
+    "angular-local-storage": "~0.2.2",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "restangular": "~1.5.1"
+  }
+}
