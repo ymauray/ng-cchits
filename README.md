@@ -53,14 +53,27 @@ Listen 9090
 </VirtualHost>
 ```
 
-Contribute
---------
+Watch it in action !
+--------------------
 
-Clone this repository, then install javascript and PHP dependencies :
+Point your browser at `http://<server>/<path>/admin`. It should be redirected to
+the login page. Login with username `admin` and password `Ch@ng3M3`, and you'll see
+a very crude homepage.
+
+Point your browser to `http://<server>/<path>/admin/#/logout` to clear the credentials.
+
+Contribute
+----------
+
+Clone this repository, then install javascript and PHP dependencies.
+After that, copy `config.example.php` to `config.php` and change it according
+to your environment.
  
 ```bash
 $ git clone https://github.com/ymauray/ng-cchits.git
 $ cd ng-cchits
 $ composer install
 $ bower install
+$ cp config.example.php config.php
+$ nano config.php
 ```
