@@ -41,6 +41,13 @@
                             $state.go('otp');
                         }
                     });
+                },
+                google: function() {
+                    Restangular.all('oauth').one('google', 'config').get().then(function(data) {
+                        if (data.code == 'ok') {
+                            window.location = data.url;
+                        }
+                    });
                 }
             });
         }
