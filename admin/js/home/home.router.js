@@ -22,7 +22,6 @@
 
     HomeController.$inject = ['principal'];
     function HomeController(principal) {
-        console.log('HomeController, principal: ', principal);
     }
 
 })(window.angular, window.jQuery, window._);

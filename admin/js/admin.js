@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('cchits.admin', ['ui.router', 'restangular', 'admin.auth', 'cchits.admin.home', 'cchits.admin.login'])
+        .module('cchits.admin', ['ui.router', 'restangular', 'admin.auth', 'cchits.admin.home', 'cchits.admin.login', 'tools'])
         .config(config)
         .run(run)
     ;
@@ -11,7 +11,6 @@
     config.$inject = ['RestangularProvider'];
     function config(RestangularProvider) {
         RestangularProvider.addElementTransformer('principal', true, function(principal) {
-            console.log("Adding method 'authenticate' to 'principal'");
             principal.addRestangularMethod('authenticate', 'post', 'authenticate');
             return principal;
         });
@@ -22,7 +21,6 @@
         Restangular.setBaseUrl('rest');
         Restangular.addFullRequestInterceptor(function(element, operation, what, url, headers, params) {
             var token = authService.getToken();
-            console.log('Request interceptor, token =', token);
             if (!_.isEmpty(token)) {
                 headers['X-Auth-Token'] = token;
             }

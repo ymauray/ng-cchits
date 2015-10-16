@@ -32,13 +32,13 @@ class TokenFilter
                 $public_principal = $token->getClaim('principal');
                 $users = $database->select(
                     'users',
-                    ['id', 'email'],
-                    ['username' => $public_principal->username]
+                    ['intUserID', 'strEmail'],
+                    ['strEMail' => $public_principal->email]
                 );
                 if ($users !== false) {
                     $principal = [
                         'private' => [
-                            'id' => $users[0]['id']
+                            'id' => $users[0]['intUserID']
                         ],
                         'public' => $public_principal
                     ];

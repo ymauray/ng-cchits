@@ -24,15 +24,15 @@
             })
         ;
 
-        LoginController.$inject = ['Restangular', '$state', 'authService'];
-        function LoginController(Restangular, $state, authService) {
+        LoginController.$inject = ['Restangular', '$state', 'authService', 'cryptoService'];
+        function LoginController(Restangular, $state, authService, cryptoService) {
             var _controller = angular.extend(this, {
-                username: 'admin',
+                username: 'euterpiaradio',
                 password: 'Ch@ng3M3',
                 authenticate: function() {
                     Restangular.all('principal').authenticate({
                         username: _controller.username,
-                        password: _controller.password
+                        password: cryptoService.sha1(_controller.password)
                     }).then(function(data) {
                         if (data.code == 'ok') {
                             authService.setToken(data.token);
