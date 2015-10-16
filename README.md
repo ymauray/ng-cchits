@@ -72,7 +72,7 @@ to your environment.
 ```bash
 $ git clone https://github.com/ymauray/ng-cchits.git
 $ cd ng-cchits
-$ composer install
+$ composer update
 $ bower install
 $ cp config.example.php config.php
 $ nano config.php

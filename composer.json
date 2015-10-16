@@ -1,7 +1,34 @@
 {
-    "require": {
-        "slim/slim": "^3.0@RC",
-        "lcobucci/jwt": "^3.0.5",
-        "catfan/Medoo": "^0.9.8"
+  "name": "ymauray/ng-cchits",
+  "description": "AngularJS version of CCHits.net, the site where you make the charts.",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ymauray/php-router"
     }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "ymauray/php-router": "dev-master",
+    "lcobucci/jwt": "^3.0.5",
+    "catfan/Medoo": "^0.9.8"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.0"
+  },
+  "minimum-stability": "RC",
+  "licence": "MIT",
+  "authors": [
+    {
+      "name": "Yannick Mauray",
+      "email": "yannick.mauray@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "YMA": "php/"
+    }
+  }
+
 }
